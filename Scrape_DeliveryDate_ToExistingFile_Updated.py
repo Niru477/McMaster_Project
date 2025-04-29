@@ -57,7 +57,7 @@ def clean_dataframe(df):
     return df
 
 # Process each Excel file in the folder
-input_folder = r"C:\Users\Lenevo\Desktop\McM - Second\Spring Plungers"
+input_folder = r"-------------------"     #Input Folder Path
 output_folder = os.path.join(input_folder, "Output")  # Output folder path
 
 # Create the Output folder if it doesn't exist
@@ -131,13 +131,6 @@ for filename in os.listdir(input_folder):
                             delivery_date = delivery_date_lines[1].strip() if len(delivery_date_lines) > 1 else "Not found"
                                                                   
                         except:
-                            # choose_type = sb.driver.find_element(By.XPATH,"//div[contains(@class,'SpecChoiceParameterContainer_parameter__3JRqL')]")
-                            # choose_type.click() 
-                               
-                            # add_to_order_button = sb.driver.find_element(By.XPATH, "//button[contains(@class,'AddToOrderButton_addToOrderButton__335hl ProductDetailOrderBoxFrame_productDetailAddToOrderButton__3UwT7 ProductDetailOrderBoxFrame_productDetailAddToOrderButtonBottomMargin__x9yfE')]")
-                            # add_to_order_button.click()
-                            # time.sleep(3)
-
                             # Find all elements matching the XPath
                             delivery_date_elements = sb.driver.find_elements(By.XPATH, "//span//span[starts-with(@class,'ProductDetailOrderBoxFrame_productDetailDeliveryMessage')]")
 
@@ -194,4 +187,4 @@ for filename in os.listdir(input_folder):
             for sheet_name, df in all_sheets.items():
                 df.to_excel(writer, sheet_name=sheet_name, index=False)
 
-        print(f"✅ Updated Excel saved to: {output_path}")
+        print(f"Updated Excel saved to: {output_path}")
